@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MDKAReservasiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblM_Ruangan">
+    <Key>
+      <PropertyRef Name="Ruangan_PK" />
+    </Key>
+    <Property Name="Ruangan_PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamaRuangan" Type="nvarchar" MaxLength="200" />
+    <Property Name="Lantai" Type="int" />
+    <Property Name="DayaTampung" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Status_FK" Type="int" />
+  </EntityType>
+  <EntityType Name="tblM_Status">
+    <Key>
+      <PropertyRef Name="Status_PK" />
+    </Key>
+    <Property Name="Status_PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamaStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblT_Reservasi">
+    <Key>
+      <PropertyRef Name="Reservasi_PK" />
+    </Key>
+    <Property Name="Reservasi_PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ruangan_FK" Type="int" />
+    <Property Name="SubjectReservasi" Type="nvarchar(max)" />
+    <Property Name="TanggalReservasi" Type="date" />
+    <Property Name="JamMulai" Type="time" Precision="7" />
+    <Property Name="JamSelesai" Type="time" Precision="7" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <Function Name="InsertUpdateDeleteReserve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reservasi_PK" Type="int" Mode="In" />
+    <Parameter Name="Ruangan_FK" Type="int" Mode="In" />
+    <Parameter Name="SubjectReservasi" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="TanggalReservasi" Type="date" Mode="In" />
+    <Parameter Name="JamMulai" Type="time" Mode="In" />
+    <Parameter Name="JamSelesai" Type="time" Mode="In" />
+    <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatementType" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MDKAReservasiModelStoreContainer">
+    <EntitySet Name="tblM_Ruangan" EntityType="Self.tblM_Ruangan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Status" EntityType="Self.tblM_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Reservasi" EntityType="Self.tblT_Reservasi" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

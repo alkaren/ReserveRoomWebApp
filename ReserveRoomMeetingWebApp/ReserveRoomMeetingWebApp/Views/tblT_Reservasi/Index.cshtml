@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ReserveRoomMeetingWebApp.Models.tblT_Reservasi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ruangan_FK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectReservasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TanggalReservasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JamMulai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JamSelesai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ruangan_FK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectReservasi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalReservasi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JamMulai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JamSelesai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Reservasi_PK }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Reservasi_PK }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Reservasi_PK })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@if (TempData["message"] != null)
+{
+    <script>alert('@TempData["message"]');</script>
+}

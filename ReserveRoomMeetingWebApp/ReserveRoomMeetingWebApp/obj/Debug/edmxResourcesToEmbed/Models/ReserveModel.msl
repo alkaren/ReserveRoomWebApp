@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MDKAReservasiModelStoreContainer" CdmEntityContainer="MDKAReservasiEntities">
+    <EntitySetMapping Name="tblM_Ruangan">
+      <EntityTypeMapping TypeName="MDKAReservasiModel.tblM_Ruangan">
+        <MappingFragment StoreEntitySet="tblM_Ruangan">
+          <ScalarProperty Name="Ruangan_PK" ColumnName="Ruangan_PK" />
+          <ScalarProperty Name="NamaRuangan" ColumnName="NamaRuangan" />
+          <ScalarProperty Name="Lantai" ColumnName="Lantai" />
+          <ScalarProperty Name="DayaTampung" ColumnName="DayaTampung" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Status_FK" ColumnName="Status_FK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Status">
+      <EntityTypeMapping TypeName="MDKAReservasiModel.tblM_Status">
+        <MappingFragment StoreEntitySet="tblM_Status">
+          <ScalarProperty Name="Status_PK" ColumnName="Status_PK" />
+          <ScalarProperty Name="NamaStatus" ColumnName="NamaStatus" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Reservasi">
+      <EntityTypeMapping TypeName="MDKAReservasiModel.tblT_Reservasi">
+        <MappingFragment StoreEntitySet="tblT_Reservasi">
+          <ScalarProperty Name="Reservasi_PK" ColumnName="Reservasi_PK" />
+          <ScalarProperty Name="Ruangan_FK" ColumnName="Ruangan_FK" />
+          <ScalarProperty Name="SubjectReservasi" ColumnName="SubjectReservasi" />
+          <ScalarProperty Name="TanggalReservasi" ColumnName="TanggalReservasi" />
+          <ScalarProperty Name="JamMulai" ColumnName="JamMulai" />
+          <ScalarProperty Name="JamSelesai" ColumnName="JamSelesai" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InsertUpdateDeleteReserve" FunctionName="MDKAReservasiModel.Store.InsertUpdateDeleteReserve">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MDKAReservasiModel.InsertUpdateDeleteReserve_Result">
+          <ScalarProperty Name="Reservasi_PK" ColumnName="Reservasi_PK" />
+          <ScalarProperty Name="Ruangan_FK" ColumnName="Ruangan_FK" />
+          <ScalarProperty Name="SubjectReservasi" ColumnName="SubjectReservasi" />
+          <ScalarProperty Name="TanggalReservasi" ColumnName="TanggalReservasi" />
+          <ScalarProperty Name="JamMulai" ColumnName="JamMulai" />
+          <ScalarProperty Name="JamSelesai" ColumnName="JamSelesai" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

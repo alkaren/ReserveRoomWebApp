@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MDKAReservasiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblM_Ruangan">
+    <Key>
+      <PropertyRef Name="Ruangan_PK" />
+    </Key>
+    <Property Name="Ruangan_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamaRuangan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Lantai" Type="Int32" />
+    <Property Name="DayaTampung" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status_FK" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblM_Status">
+    <Key>
+      <PropertyRef Name="Status_PK" />
+    </Key>
+    <Property Name="Status_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamaStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblT_Reservasi">
+    <Key>
+      <PropertyRef Name="Reservasi_PK" />
+    </Key>
+    <Property Name="Reservasi_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ruangan_FK" Type="Int32" />
+    <Property Name="SubjectReservasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TanggalReservasi" Type="DateTime" Precision="0" />
+    <Property Name="JamMulai" Type="Time" Precision="7" />
+    <Property Name="JamSelesai" Type="Time" Precision="7" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="MDKAReservasiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblM_Ruangan" EntityType="Self.tblM_Ruangan" />
+    <EntitySet Name="tblM_Status" EntityType="Self.tblM_Status" />
+    <EntitySet Name="tblT_Reservasi" EntityType="Self.tblT_Reservasi" />
+    <FunctionImport Name="InsertUpdateDeleteReserve" ReturnType="Collection(MDKAReservasiModel.InsertUpdateDeleteReserve_Result)">
+      <Parameter Name="Reservasi_PK" Mode="In" Type="Int32" />
+      <Parameter Name="Ruangan_FK" Mode="In" Type="Int32" />
+      <Parameter Name="SubjectReservasi" Mode="In" Type="String" />
+      <Parameter Name="TanggalReservasi" Mode="In" Type="DateTime" />
+      <Parameter Name="JamMulai" Mode="In" Type="Time" />
+      <Parameter Name="JamSelesai" Mode="In" Type="Time" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="StatementType" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="InsertUpdateDeleteReserve_Result">
+    <Property Type="Int32" Name="Reservasi_PK" Nullable="false" />
+    <Property Type="Int32" Name="Ruangan_FK" Nullable="true" />
+    <Property Type="String" Name="SubjectReservasi" Nullable="true" />
+    <Property Type="DateTime" Name="TanggalReservasi" Nullable="true" />
+    <Property Type="Time" Name="JamMulai" Nullable="true" />
+    <Property Type="Time" Name="JamSelesai" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>
